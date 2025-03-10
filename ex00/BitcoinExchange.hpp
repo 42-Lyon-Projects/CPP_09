@@ -34,7 +34,7 @@ class BitcoinDate
 		explicit BitcoinDate(const std::string &string_date) throw (InvalidDateException);
 		BitcoinDate(const BitcoinDate &other);
 		~BitcoinDate();
-		BitcoinDate &operator=(const BitcoinDate &other);
+		BitcoinDate& operator=(const BitcoinDate &other);
 		bool operator>(const BitcoinDate &other) const;
 		bool operator<(const BitcoinDate &other) const;
 
@@ -53,7 +53,7 @@ class BitcoinExchange
 		BitcoinExchange(const BitcoinExchange &other);
 		~BitcoinExchange();
 		BitcoinExchange&operator=(const BitcoinExchange &other);
-		void load_data_from_strings(const std::string *str, size_t lineAmount, char delimiter, std::map<BitcoinDate, float> *map) throw (std::out_of_range, BitcoinDate::InvalidDateException, std::runtime_error);;
+		void load_data_from_strings(const std::string *str, size_t lineAmount, char delimiter, std::map<BitcoinDate, float> *map) throw (std::out_of_range, std::runtime_error);;
 		std::pair<time_t, float> find_nearest_pair(const BitcoinDate &date) const;
 };
 
