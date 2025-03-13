@@ -24,27 +24,9 @@ int main(int argc, char **argv) {
     }
 
     PmergeMe pmergeMe = PmergeMe();
-    std::vector<std::pair<unsigned int, unsigned> *> *pairs;
-    try {
-        pairs = pmergeMe.splitInPairs(numbers);
-       // pmergeMe.sortPairs(pairs);
+    std::cout << "Numbers: " << numbers->size() << std::endl;
 
-        /* //TEST PRINTING
-        for (std::vector<std::pair<unsigned int, unsigned int> *>::const_iterator pairsIterator = pairs->begin(); pairsIterator != pairs->end(); ++pairsIterator) {
-            std::pair<unsigned int, unsigned int> *pairs = *pairsIterator;
-            std::cerr << "{" << pairs->first << "," << pairs->second << "}" << std::endl;
-        }
-        std::cerr << pmergeMe.getBullyNumber() << std::endl; */
-
-    } catch (const std::invalid_argument &exception) {
-        std::cerr << " Error => An error occurred during the 'splitInPairs' " << std::endl;
-        std::cerr << exception.what() << std::endl;
-        return 1;
-    }
-    catch (const std::bad_alloc &ignored) {
-        std::cerr << " Error => The program has crashed due to bad_alloc" << std::endl;
-        return 1;
-    }
+    pmergeMe.sortVector<std::vector<unsigned int> >(numbers);
 
     return 0;
 }

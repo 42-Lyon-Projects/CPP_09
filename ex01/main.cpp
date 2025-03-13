@@ -24,7 +24,7 @@ int main(int argc, char **argv) {
     long result = firstRPN->evaluate(expression);
     std::cout << "The result is: " << result << std::endl;
 
-    std::cout << "Last result is: " << firstRPN->getLastResult() << " !" << std::endl;
+   // std::cout << "Last result is: " << firstRPN->getLastResult() << " !" << std::endl;
     //TODO: check if deep copy works well
     delete firstRPN;
 

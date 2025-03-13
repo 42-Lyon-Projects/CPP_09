@@ -1,5 +1,5 @@
 NAME = PmergeMe
-CFLAGS = -Werror -Wextra -Wall -g3 -MD
+CFLAGS = -Werror -Wextra -Wall -std=c++98 -g3 -MD
 RM = @rm -rf
 CC = @c++
 DIR = @mkdir -p

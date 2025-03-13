@@ -10,57 +10,9 @@
 /************* PmergeMe Implementation *************/
 /***************************************************/
 
-void PmergeMe::setBullyNumber(const unsigned int nb) {
-    this->bullyNumber = nb;
-}
-
 unsigned int PmergeMe::getBullyNumber() const {
     return this->bullyNumber;
 }
-
-
-void PmergeMe::destroyVectorOfPair(std::vector<std::pair<unsigned int, unsigned int> *> *vector) {
-    if (vector == NULL) return;
-
-    for (std::vector<std::pair<unsigned int, unsigned int> *>::iterator pairsIterator = vector->begin(); pairsIterator != vector->end(); ++pairsIterator) {
-        delete *pairsIterator;
-    }
-
-    delete vector;
-}
-
-std::vector<std::pair<unsigned int, unsigned int> *> *PmergeMe::splitInPairs(std::vector<unsigned int> *numbers) throw (std::invalid_argument, std::bad_alloc) {
-    if (numbers == NULL)
-        throw std::invalid_argument("The vector passed as argument is null");
-
-    std::vector<std::pair<unsigned int, unsigned int> *> *paired = new(std::nothrow) std::vector<std::pair<unsigned int, unsigned int> *>();
-
-    if (paired == NULL)
-        throw std::bad_alloc();
-
-    if (numbers->size() % 2 != 0) {
-        this->setBullyNumber(numbers->back());
-        numbers->pop_back();
-    }
-
-    for (std::vector<unsigned int>::iterator numbersIterator = numbers->begin(); numbersIterator != numbers->end(); ++numbersIterator) {
-        unsigned int current = *numbersIterator;
-        ++numbersIterator;
-        unsigned int next = *numbersIterator;
-        std::pair<unsigned int, unsigned int> *pair = new(std::nothrow) std::pair<unsigned int, unsigned int>(current, next);
-        if (pair == NULL) {
-            destroyVectorOfPair(paired);
-            throw std::bad_alloc();
-        }
-
-        paired->push_back(pair);
-    }
-    return paired;
-}
-
-
-
-
 
 
 /***************************************************/
