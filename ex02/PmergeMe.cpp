@@ -52,7 +52,6 @@ std::vector<unsigned int> *InputParser::verifyInput(const int argc, const char *
     char *endptdr = NULL;
     //TODO: FREE THIS
     std::vector<unsigned int> *numbers = new(std::nothrow) std::vector<unsigned int>();
-
     if (numbers == NULL)
         throw std::bad_alloc();
 

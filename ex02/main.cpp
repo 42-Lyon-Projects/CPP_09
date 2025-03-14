@@ -24,8 +24,6 @@ int main(int argc, char **argv) {
     }
 
     PmergeMe pmergeMe = PmergeMe();
-    std::cout << "Numbers: " << numbers->size() << std::endl;
-
     pmergeMe.sortVector<std::vector<unsigned int> >(numbers);
 
     return 0;
